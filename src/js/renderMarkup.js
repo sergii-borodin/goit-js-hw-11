@@ -1,9 +1,9 @@
 import { refs } from "./helpers/refs";
 
 export function renderMarkup(data) {
-    refs.gallery.innerHTML = data.hits.map(({webformatURL, largeImageURL, tags, likes, views, comments, downloads}) => `
+    const markup = data.hits.map(({webformatURL, largeImageURL, tags, likes, views, comments, downloads}) => `
     <div class="photo-card">
-            <img class="image" src="${webformatURL}" alt="" loading="lazy" />
+            <img class="image" src="${webformatURL}" alt="${tags}" loading="lazy" />
         <div class="info-flex">
             <p class="info-item">
                 <b>Likes: ${likes}</b>
@@ -21,4 +21,5 @@ export function renderMarkup(data) {
       </div>
   </div>`)
         .join('')
+    refs.gallery.insertAdjacentHTML('beforeend', markup);
 }
