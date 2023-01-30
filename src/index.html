@@ -8,17 +8,23 @@
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <form class="search-form" id="search-form">
-      <input
-        type="text"
-        name="searchQuery"
-        autocomplete="off"
-        placeholder="Search images..."
-      />
-      <button type="submit">Search</button>
-    </form>
-    <div class="gallery">
-      <!-- Карточки изображений -->
+    <div class="container">
+      <header class="header-input">
+        <form class="search-form" id="search-form">
+          <input
+            type="text"
+            name="searchQuery"
+            autocomplete="off"
+            placeholder="Search images..."
+          />
+          <button type="submit">Search</button>
+        </form>
+      </header>
+      <section class="main-section">
+        <div class="gallery"></div>
+      </section>
+        <!-- Карточки изображений -->
+      </div>
     </div>
   </body>
 </html>

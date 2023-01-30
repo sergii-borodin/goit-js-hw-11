@@ -1,6 +1,7 @@
 // import { Notify } from "notiflix";
 import { fetchImages } from "./js/fetchImages";
 import { refs } from "./js/helpers/refs";
+import { renderMarkup } from "./js/renderMarkup";
 
 refs.searchForm.addEventListener('submit', onFormSubmit);
 
@@ -8,8 +9,7 @@ let searchInput = '';
 async function onFormSubmit(e) {
     e.preventDefault();
 
-        fetchImages(searchInput).then(data => console.log(data))
-
+    fetchImages(searchInput).then(data => renderMarkup(data)).catch(error => console.log(error));
 }
 
 
