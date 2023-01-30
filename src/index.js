@@ -18,14 +18,21 @@ function onFormSubmit(e) {
 
     fetchImages(searchInput, page).then(data => {
 
-        if (data.totalHits === 0) {
-            Notify.failure("Sorry, there are no images matching your search query. Please try again. ");
-            refs.loadButton.style.display = "none";
+        if (searchInput.length === 0) {
+            Notify.failure("Oops, You forgot to enter a searching word! ");
+            return
         } else {
-            Notify.success(`Hooray! We found ${data.totalHits} images.`);
-            renderMarkup(data);
-            refs.loadButton.style.display = "block";
+            if (data.totalHits === 0) {
+                Notify.failure("Sorry, there are no images matching your search query. Please try again. ");
+                refs.loadButton.style.display = "none";
+            } else {
+                Notify.success(`Hooray! We found ${data.totalHits} images.`);
+                renderMarkup(data);
+                refs.loadButton.style.display = "block";
+            }
         }
+
+        
         
     }).catch(error => console.log(error));
 
